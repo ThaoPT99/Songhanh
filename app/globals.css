@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #05203a;
+  --color-navy-900: #072b4b;
+  --color-navy-800: #0a3a61;
+  --color-navy-700: #0b4d80;
+  --color-navy-600: #14639e;
+  --color-navy-500: #2b7cb8;
+  --color-navy-100: #dbe7f2;
+  --color-navy-50: #eef4fa;
+
+  --color-flag-700: #8f0b22;
+  --color-flag-600: #a80f28;
+  --color-flag-500: #c8102e;
+
+  --color-gold-500: #c9962f;
+  --color-gold-400: #e0ad46;
+  --color-gold-300: #f0c878;
+  --color-gold-100: #fbf2dc;
+
+  --color-paper: #f4f6f9;
+  --color-ink: #14212f;
+  --color-muted: #53637a;
+  --color-line: #d8e0e9;
+
+  --font-sans: var(--font-be-vietnam), "Segoe UI", Arial, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-navy-700);
+    color: #fff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  .gov-pattern {
+    background-image:
+      linear-gradient(115deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(65deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 46px 46px, 46px 46px;
+  }
+
+  .link-underline {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  }
+
+  .link-underline:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .prose-gov p {
+    margin-bottom: 0.9rem;
+    line-height: 1.85;
+  }
+
+  .prose-gov p:last-child {
+    margin-bottom: 0;
+  }
+
+  .prose-gov ul {
+    margin: 0.5rem 0 1rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .prose-gov li {
+    position: relative;
+    margin-bottom: 0.55rem;
+    padding-left: 1.5rem;
+    line-height: 1.75;
+  }
+
+  .prose-gov li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 7px;
+    height: 7px;
+    border: 2px solid var(--color-flag-500);
+    transform: rotate(45deg);
+  }
+}
